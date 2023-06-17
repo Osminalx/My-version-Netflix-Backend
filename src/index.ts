@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
+import cors from 'cors';
 
 import moviesRouter from './Routes/movies';
 
@@ -14,8 +15,8 @@ const app = express()
 
 
 //Middleware
-app.use(express.json())
-
+app.use(express.json());
+app.use(cors());
 
 app.get('/ping',(_req,res)=>{
     console.log('someone pinged here!!')
