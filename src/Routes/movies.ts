@@ -11,4 +11,6 @@ router.get('/:movieId',moviesController.getMovie )
 
 router.delete('/:movieId',moviesController.deleteMovie )
 
+router.patch('/:movieId',moviesController.updateMovieLike )
+
 export default router;

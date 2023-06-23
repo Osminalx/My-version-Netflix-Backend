@@ -40,6 +40,23 @@ export const saveMovie = async (req:Request,res:Response) =>{
     }
 }
 
+export const updateMovieLike = async (req:Request,res:Response)=>{
+    try {
+        const movieId = req.params.movieId
+        const {liked} =req.body
+
+        const updatedLike = await  MovieService.updateLiked(movieId,liked);
+
+        res.status(200).json(updatedLike)
+
+    } catch (error) {
+        console.error(error)
+
+        res.status(500).json({error:'Ocurrió un error al intentar acutalizar el estado liked de la película'})
+
+    }
+}
+
 export const deleteMovie = async (req:Request,res:Response)=>{
     const id = req.params.movieId
     try {

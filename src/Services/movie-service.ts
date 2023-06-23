@@ -19,11 +19,15 @@ export const getMovie = async (id:string)=>{
     return movie
 }
 
-
 export const saveMovies = async (movie:Movie) =>{
     const savedMovies = new Movie(movie);
     await savedMovies.save();
     return savedMovies;
+}
+
+export const updateLiked = async (id:string, liked:boolean)=>{
+    const updatedLike = await Movie.findByIdAndUpdate(id,{liked},{new:true})
+    return updatedLike;
 }
 
 export const deleteMovie = async (id:string)=>{
